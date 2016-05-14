@@ -4,34 +4,34 @@
 
 #include "sds.h"
 
-typedef struct sdshead {
-	int len;
-	int capacity;
-	char buf[];
-} sdshead;
+typedef struct SdsHead {
+    int len;
+    int capacity;
+    char buf[];
+} SdsHead;
 
-sds sdsNew(const char *init) {
+Sds sdsNew(const char *init) {
 
-	sds s;
+    Sds s;
 
-	int len = strlen(init);
-	sdshead* sh = malloc(sizeof(sdshead) + len + 1);
+    int len = strlen(init);
+    SdsHead* sh = malloc(sizeof(SdsHead) + len + 1);
 
-	sh->len = len;
-	sh->capacity = len;
+    sh->len = len;
+    sh->capacity = len;
 
-	s = (sds) (sh->buf);
-	memcpy(s, init, len);
-	s[len] = '\0';
+    s = (Sds) (sh->buf);
+    memcpy(s, init, len);
+    s[len] = '\0';
 
-	return s;
+    return s;
 }
 
 /*
-int main(int argc, char** argv) {
-	sds s = sdsNew("hello world");
-	sdshead* sh = (sdshead*)(s - sizeof(sdshead));
-	printf("%s %d %d", s, sh->len, sh->capacity);
-}
+ int main(int argc, char** argv) {
+ Sds s = SdsNew("hello world");
+ Sdshead* sh = (Sdshead*)(s - sizeof(Sdshead));
+ printf("%s %d %d", s, sh->len, sh->capacity);
+ }
 
-*/
+ */

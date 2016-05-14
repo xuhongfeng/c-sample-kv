@@ -3,19 +3,19 @@
 
 #include "sds.h"
 
-typedef struct dictEntity {
-	sds key;
-	sds value;
-	struct dictEntity* next;
-} dictEntity;
+typedef struct DictEntity {
+    Sds key;
+    Sds value;
+    struct DictEntity* next;
+} DictEntity;
 
-typedef struct dict {
-	dictEntity** table;
-	int size;
-} dict;
+typedef struct Dict {
+    DictEntity** table;
+    int size;
+} Dict;
 
-dict* dictNew();
-void dictPut(dict* dict, sds key, sds value);
-sds dictGet(dict* dict, sds key);
+Dict* dictNew();
+void dictPut(Dict* dict, Sds key, Sds value);
+Sds dictGet(Dict* dict, Sds key);
 
 #endif

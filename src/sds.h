@@ -1,8 +1,8 @@
 #ifndef __SDS_H
 #define __SDS_H
 
-typedef char* sds;
+typedef char* Sds;
 
-sds sdsNew(const char *init);
+Sds sdsNew(const char *init);
 
 #endif
