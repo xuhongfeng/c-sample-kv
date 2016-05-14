@@ -10,7 +10,7 @@ typedef struct sdshead {
 	char buf[];
 } sdshead;
 
-sds sdsnew(const char *init) {
+sds sdsNew(const char *init) {
 
 	sds s;
 
@@ -27,8 +27,11 @@ sds sdsnew(const char *init) {
 	return s;
 }
 
+/*
 int main(int argc, char** argv) {
-	sds s = sdsnew("hello world");
+	sds s = sdsNew("hello world");
 	sdshead* sh = (sdshead*)(s - sizeof(sdshead));
 	printf("%s %d %d", s, sh->len, sh->capacity);
 }
+
+*/

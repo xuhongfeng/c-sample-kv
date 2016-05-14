@@ -3,6 +3,6 @@
 
 typedef char* sds;
 
-sds sdsnew(const char *init);
+sds sdsNew(const char *init);
 
 #endif
